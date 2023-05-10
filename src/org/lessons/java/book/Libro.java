@@ -6,7 +6,7 @@ public class Libro {
 	private String autore;
 	private String editore;
 
-	public Libro(String titolo, int numPag, String autore, String editore) {
+	public Libro(String titolo, int numPag, String autore, String editore) throws Exception {
 
 		setTitolo(titolo);
 		setNumPag(numPag);
@@ -18,7 +18,12 @@ public class Libro {
 		return titolo;
 	}
 
-	public void setTitolo(String titolo) {
+	public void setTitolo(String titolo) throws Exception {
+
+		if (titolo.length() <= 0) {
+
+			throw new Exception("Non hai inserito il titolo del libro!");
+		}
 		this.titolo = titolo;
 	}
 
@@ -26,7 +31,11 @@ public class Libro {
 		return numPag;
 	}
 
-	public void setNumPag(int numPag) {
+	public void setNumPag(int numPag) throws Exception {
+		if (numPag <= 0) {
+
+			throw new Exception("Il numero delle pagine non può essere di 0 o inferiore!");
+		}
 		this.numPag = numPag;
 	}
 
@@ -34,7 +43,11 @@ public class Libro {
 		return autore;
 	}
 
-	public void setAutore(String autore) {
+	public void setAutore(String autore) throws Exception {
+		if (autore.length() <= 0) {
+
+			throw new Exception("Non hai inserito l'autore!");
+		}
 		this.autore = autore;
 	}
 
@@ -46,4 +59,10 @@ public class Libro {
 		this.editore = editore;
 	}
 
+	@Override
+	public String toString() {
+
+		return "**Titolo: " + getTitolo() + "   " + "**Autore: " + getAutore() + " " + "**Editore: " + getEditore()
+				+ " " + "**Pagine: " + getNumPag();
+	}
 }
