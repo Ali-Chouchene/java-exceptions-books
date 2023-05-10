@@ -58,7 +58,7 @@ public class Main {
 			FileWriter writer = new FileWriter(FILENAME);
 			for (int i = 0; i < books.length; i++) {
 				Libro book = books[i];
-				writer.write(book.toString() + "  ****----****  ");
+				writer.write(book.toString() + " \n");
 			}
 			writer.close();
 			printFile();
